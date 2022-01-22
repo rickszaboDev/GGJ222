@@ -28,14 +28,14 @@ namespace GGJ22.Variables
         
         public void Register(Action<T> callback)
         {
-            if(!_lock) return;
+            if(_lock) return;
             
             listeners.Add(callback);   
         }
 
         public void Unregister(Action<T> callback)
         {
-            if(!_lock) return;
+            if(_lock) return;
 
             listeners.Remove(callback);
         }
