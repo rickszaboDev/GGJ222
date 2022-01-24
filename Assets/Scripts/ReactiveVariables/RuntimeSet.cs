@@ -1,23 +1,23 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-[CreateAssetMenu(fileName = "RuntimeSet", menuName = "Variables/RuntimeSet", order = 0)]
-public class RuntimeSet<T> : ScriptableObject 
+namespace GGJ22.Variables
 {
-    private List<T> set = new List<T>();
-
-    public void Register(T obj)
+    public class RuntimeSet<T> : ScriptableObject 
     {
-        if(set.Contains(obj)) return;
-
-        set.Add(obj);
-    }
-
-    public void Unregister(T obj)
-    {
-        if(set.Contains(obj))
+        public List<T> Set = new List<T>();
+        public void Register(T obj)
         {
-            set.Remove(obj);
+            if(Set.Contains(obj)) return;
+            Set.Add(obj);
+        }
+
+        public void Unregister(T obj)
+        {
+            if(Set.Contains(obj))
+            {
+                Set.Remove(obj);
+            }
         }
     }
 }

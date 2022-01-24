@@ -19,4 +19,9 @@ public class ToggleDayNight : MonoBehaviour
         var trigger = res ? "SetNight" : "SetDay";
         _animator.SetTrigger(trigger);
     }
+
+    private void OnDisable() 
+    {
+        isDay.Register(Toggle);   
+    }
 }
